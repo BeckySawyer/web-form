@@ -21,7 +21,7 @@ function validateAddress($address) {
 }
 
 function validateEmail($email) {
-	if (empty($email)) {
+	if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
     return "Email is required";
   }
 }
@@ -49,3 +49,19 @@ function validateGender($gender) {
     return "Gender is required";
   }
 }
+
+function calculateAge($age, $dateofbirth){
+
+        $dateofbirth = date("Y-m-d",strtotime($dateofbirth));
+
+        $dobObject = new DateTime($dateofbirth);
+        $nowObject = new DateTime();
+
+        $diff = $dobObject->diff($nowObject);
+
+        return $diff->y;
+
+}
+
+// make a function to have the date valid
+// make a function to minus input date by current date to make sure age is valid
