@@ -15,6 +15,7 @@
 		$movies = $_POST['movies'];
 		$gender = !empty($_POST['gender']) ? $_POST['gender'] : '';
 
+		// php functions
 		$errors['name'] = validateName($name);
 		$errors['address'] = validateAddress($address);
 		$errors['email'] = validateEmail($email);

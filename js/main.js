@@ -1,19 +1,20 @@
 function validate() {
-    validateName();
-    validateAddress();
-    validateEmail();
-    validateMovies();
-    validateGender();
-    validateDateOfBirth();
-    validaeAge();
+    var nameError = validateName();
+    var addressError = validateAddress();
+    var emailError = validateEmail();
+    var moviesError = validateMovies();
+    var genderError = validateGender();
+    var ageError = validateDOB();
+    if (nameError && addressError && emailError && moviesError && genderError && ageError) {
+        return true;
+    }
     return false;
-    document.getElementById('submitButton').submit();
 }
 
 function validateName() {
 	name = document.getElementById('name').value;
     pos1 = name.indexOf(" ");
-    if (pos1 >= 0 && name.length < 40) {
+    if (pos1 >= 0 && name.length > 3 && name.length < 40) {
         document.getElementById('nameError').innerHTML = "";
         return true;
     }
@@ -72,4 +73,43 @@ function validateGender() {
     }
     if (!selectGender) document.getElementById('genderError').innerHTML = 'Please select a gender';
     return selectGender;
+}
+
+function validateDOB() {
+    var dateofbirth = document.getElementById('dateofbirth');
+    var calculateAge = getAge(dateofbirth.value);
+    // document.getElementById('age').value = (getAge(document.getElementById('dateofbirth').value));
+    if (calculateAge != document.getElementById('age').value) {
+        document.getElementById('ageError').innerHTML = "Please enter a valid age";
+        return false;
+    }
+    else {
+        document.getElementById('ageError').innerHTML = "";
+        return true;
+    }
+}
+
+function getAge(dateOfBirth) {
+    var today = new Date();
+    var birthDate = new Date(dateOfBirth);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+// function validateAge() {
+//     var dob = document.getElementById('dateofbirth');
+//     var age = getAge(dateofbirth.value);
+//     if (age != document.getElementById('age').value) {
+//         alert("lol wrong")
+//     }
+// }
+
+function calculateAge() {
+    var dob = document.getElementById('dateofbirth');
+    var age = getAge(dateofbirth.value);
+    document.getElementById('age').value = age;
 }
