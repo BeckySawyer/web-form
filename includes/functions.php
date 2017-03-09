@@ -12,11 +12,23 @@ function validateName($name) {
 	if (empty($name)) {
     return "Name is required";
   }
+  if (strlen($name) > 40 || !preg_match("/\s/", $name)) {
+    return "Please enter full name";
+  }
+  else {
+    return false;
+  }
 }
 
 function validateAddress($address) {
 	if (empty($address)) {
     return "Address is required";
+  }
+  if (strlen($name) > 200) {
+    return "Please enter a full address";
+  }
+  else {
+    return false;
   }
 }
 
@@ -50,18 +62,6 @@ function validateGender($gender) {
   }
 }
 
-function calculateAge($age, $dateofbirth){
-
-        $dateofbirth = date("Y-m-d",strtotime($dateofbirth));
-
-        $dobObject = new DateTime($dateofbirth);
-        $nowObject = new DateTime();
-
-        $diff = $dobObject->diff($nowObject);
-
-        return $diff->y;
-
-}
-
 // make a function to have the date valid
 // make a function to minus input date by current date to make sure age is valid
+
