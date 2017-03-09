@@ -1,4 +1,4 @@
-<form method="POST" action="index.php" id="myForm">
+<form method="POST" action="index.php" onsubmit="return validate()"">
 	<label for="name"> Your name  <?= !empty($errors['name']) ? $errors['name'] : ''?> </label>
 	<input id="name" name="name" type="text" placeholder="Enter name" value="<?= !empty($name) ? $name : '' ?>">
 	<div id="nameError"></div>
@@ -24,7 +24,7 @@
 	<br>
 
 	<label for="dateofbirth"> Your date of birth <?= !empty($errors['dateofbirth']) ? $errors['dateofbirth'] : ''?></label>
-	<input id="dateofbirth" name="dateofbirth" type="date" placeholder="##/##/####" value="<?= !empty($dateofbirth) ? $dateofbirth : '' ?>" max="2017-03-10" onchange="calculateAge()">
+	<input id="dateofbirth" name="dateofbirth" type="date" placeholder="##/##/####" value="<?= !empty($dateofbirth) ? $dateofbirth : '' ?>" max="2017-03-10" onchange="validateDOB()">
 	<div id="dateofbirthError"></div>
 
 	<br>
@@ -47,5 +47,5 @@
 
 	<br>
 
-	<button type="submit" onsubmit="return validate()"> Submit </button>
+	<button type="submit" id="submitButton"> Submit </button>
 </form>

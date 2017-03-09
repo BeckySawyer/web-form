@@ -13,7 +13,7 @@ function validateName($name) {
     return "Name is required";
   }
   if (strlen($name) < 40 && !preg_match("/\s/", $name)) {
-    return "Please enter full name";
+    return "Please enter a first and last name";
   }
   else {
     return false;
@@ -25,7 +25,7 @@ function validateAddress($address) {
     return "Address is required";
   }
   if (strlen($name) > 200) {
-    return "Please enter a full address";
+    return "Please enter a full address, no longer than 200 characters";
   }
   else {
     return false;
@@ -80,13 +80,13 @@ function validateBirthday($dateofbirth) {
 
 function validateMovies($movies) {
 	if ($movies == 'movie1') {
-    return "Movie is required";
+    return "Movie selection is required";
   }
 }
 
 function validateGender($gender) {
 	if (empty($gender)) {
-    return "Gender is required";
+    return "Gender selection is required";
   }
 }
 

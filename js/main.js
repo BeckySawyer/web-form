@@ -32,7 +32,7 @@ function validateAddress() {
         return true;
     }
     else {
-        document.getElementById('addressError').innerHTML = "Please enter a full address";
+        document.getElementById('addressError').innerHTML = "Please enter a full address, no longer than 200 characters";
         return false;
     }
 }
@@ -80,7 +80,7 @@ function validateDOB() {
     var calculateAge = getAge(dateofbirth.value);
     // document.getElementById('age').value = (getAge(document.getElementById('dateofbirth').value));
     if (calculateAge != document.getElementById('age').value) {
-        document.getElementById('ageError').innerHTML = "Please enter a valid age";
+        document.getElementById('ageError').innerHTML = "Please enter a valid age, no more than 150";
         return false;
     }
     else {
