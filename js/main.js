@@ -46,7 +46,7 @@ function validateEmail() {
         return true;
     }
     else {
-        document.getElementById('emailError').innerHTML = "Please enter a valid email address";
+        document.getElementById('emailError').innerHTML = "Please enter a valid email address, must include @ and .";
         return false;
     }
 }
@@ -78,8 +78,9 @@ function validateGender() {
 function validateDOB() {
     var dateofbirth = document.getElementById('dateofbirth');
     var calculateAge = getAge(dateofbirth.value);
+    var dob = document.getElementById('age').value;
     // document.getElementById('age').value = (getAge(document.getElementById('dateofbirth').value));
-    if (calculateAge != document.getElementById('age').value) {
+    if (calculateAge != dob || parseInt(dob) >= 150 || parseInt(dob) < 0) {
         document.getElementById('ageError').innerHTML = "Please enter a valid age, no more than 150";
         return false;
     }

@@ -24,7 +24,7 @@ function validateAddress($address) {
 	if (empty($address)) {
     return "Address is required";
   }
-  if (strlen($name) > 200) {
+  if (strlen($address) > 200) {
     return "Please enter a full address, no longer than 200 characters";
   }
   else {
@@ -34,7 +34,7 @@ function validateAddress($address) {
 
 function validateEmail($email) {
 	if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-    return "Email is required";
+    return "Email is required, must include @ and .";
   }
 }
 
@@ -58,25 +58,14 @@ function validateAge($age) {
 //         return 0;
 //     }
 // }
-// $dob = "13-08-1992";
+// $dob = "13/08/1992";
 // echo ageCalculator($dob);
-
-// function convertDate($dateofbirth) {
-// $date_array = explode("/", $dateofbirth); 
-// $var_day = $date_array[0]; 
-// $var_month = $date_array[1]; 
-// $var_year = $date_array[2]; 
-// echo $new_date = "$var_year-$var_month-$var_day"; 
-// }
-
-// echo convertDate($dateofbirth);
 
 function validateBirthday($dateofbirth) {
 	if (empty($dateofbirth)) {
     return "Date of birth is required";
   }
 }
-
 
 function validateMovies($movies) {
 	if ($movies == 'movie1') {
