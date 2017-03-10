@@ -25,6 +25,14 @@
 		$errors['gender'] = validateGender($gender);
 
 		// dd($_POST);
+		
+		$formcontent=" From: $name \n Email: $email \n Message: $address";
+  		$recipient = "sawyerbecky13@gmail.com";
+  		$subject = "Website Form Submission";
+  		$mailheader = "From: $email \r\n";
+  		mail ($recipient, $subject, $formcontent, $mailheader) or die ("error");
+  		require 'thanks.php';
+  		die();
 	}
 
 	require 'partials/header.php';
