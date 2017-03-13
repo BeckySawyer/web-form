@@ -7,5 +7,7 @@
   <title>PHP Form</title>
 
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="css/spectre.min.css" />
+  <link rel="stylesheet" href="css/spectre-exp.min.css" />
 </head>
 <body>
