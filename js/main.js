@@ -1,4 +1,4 @@
-function validate() {
+   function validate() {
     var nameError = validateName();
     var addressError = validateAddress();
     var emailError = validateEmail();
@@ -114,3 +114,16 @@ function calculateAge() {
     var age = getAge(dateofbirth.value);
     document.getElementById('age').value = age;
 }
+
+ $(document).ready(function() {
+    $('select').material_select();
+  });
+
+   $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 20 // Creates a dropdown of 15 years to control year
+  });
+
+   $(document).ready(function() {
+    $('input#input_text, textarea#textarea1').characterCounter();
+  });

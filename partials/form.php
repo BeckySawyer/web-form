@@ -1,83 +1,78 @@
 <div class="container">
 
 <form method="POST" action="index.php" onsubmit="return validate()" class="form-horizontal">
-	<div class="form-group">
-	<div class="col-3">
-	<label for="name" class="form-label"> Your name  <?= !empty($errors['name']) ? $errors['name'] : ''?> </label>
-	</div>
-	<div class="col-9">
-	<input id="name" name="name" type="text" placeholder="Enter name" value="<?= !empty($name) ? $name : '' ?>" class="form-input">
+
+<div class="row">
+<div class="col s6">
+	<div class="input-field">
+	<i class="material-icons prefix">account_circle</i>
+	<input id="name" name="name" type="text" value="<?= !empty($name) ? $name : '' ?>" class="icon-prefix">
+	<label for="name" class="icon-prefix"> Your name  <?= !empty($errors['name']) ? $errors['name'] : ''?> </label>
 	<div id="nameError"></div>
 	</div>
-	</div>
 
 
-	<div class="form-group">
-	<div class="col-3">
-	<label for="address" class="form-label"> Your address  <?= !empty($errors['address']) ? $errors['address'] : ''?> </label>
-	</div>
-	<div class="col-9">
-	<textarea id="address" class="form-input" name="address" placeholder="Enter address"><?= !empty($address) ? $address : '' ?></textarea>
+	<div class="input-field">
+	<i class="material-icons prefix">location_city</i>
+	<textarea id="address" class="materialize-textarea" name="address"><?= !empty($address) ? $address : '' ?></textarea>
+	<label for="address"> Your address  <?= !empty($errors['address']) ? $errors['address'] : ''?> </label>
 	<div id="addressError"></div>
-	</div>
 	</div>
 	
 
-	<div class="form-group">
-	<div class="col-3">
-	<label for="email" class="form-label"> Your email <?= !empty($errors['email']) ? $errors['email'] : ''?></label>
-	</div>
-	<div class="col-9">
-	<input id="email" class="form-input" name="email" type="text" placeholder="Enter email" value="<?= !empty($email) ? $email : '' ?>">
+	<div class="input-field">
+	<i class="material-icons prefix">email</i>
+	<input id="email" name="email" type="text" value="<?= !empty($email) ? $email : '' ?>">
+	<label for="email"> Your email <?= !empty($errors['email']) ? $errors['email'] : ''?></label>
 	<div id="emailError"></div>
 	</div>
 	</div>
 	
 
-	<div class="form-group">
-	<div class="col-3">
-	<label for="age" class="form-label"> Your age <?= !empty($errors['age']) ? $errors['age'] : ''?></label>
-	</div>
-	<div class="col-9">
-	<input id="age" class="form-input" name="age" type="number" min="1" placeholder="##" value="<?= !empty($age) ? $age : '' ?>">
+	<div class="col s6">
+	<div class="input-field">
+	<i class="material-icons prefix">cake</i>
+	<input id="age" name="age" type="number" min="1" value="<?= !empty($age) ? $age : '' ?>">
+	<label for="age"> Your age <?= !empty($errors['age']) ? $errors['age'] : ''?></label>
 	<div id="ageError"></div>
 	</div>
-	</div>
-	
 
-	<div class="form-group">
-	<div class="col-3">
+
+	<div class="input-field">
+	<i class="material-icons prefix">today</i>
+	<input id="dateofbirth" name="dateofbirth" type="date" value="<?= !empty($dateofbirth) ? $dateofbirth : '' ?>" onchange="calculateAge()" class="datepicker">
 	<label for="dateofbirth" class="form-label"> Your date of birth <?= !empty($errors['dateofbirth']) ? $errors['dateofbirth'] : ''?></label>
 	</div>
-	<div class="col-9">
-	<input id="dateofbirth" name="dateofbirth" type="date" placeholder="##/##/####" value="<?= !empty($dateofbirth) ? $dateofbirth : '' ?>" onchange="calculateAge()">
-	</div>
-	</div>
 	
 
-	
-
-	<label for="movies" class="form-label"> Choose your favourite movie <?= !empty($errors['movies']) ? $errors['movies'] : ''?></label>
+	<div class="input-field">
+	<i class="material-icons prefix">movie</i>
 	<select id="movies" name="movies">
-		<option value="movie1" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie1') echo 'selected="selected"'; ?>> Select Movie </option>
-		<option value="movie2" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie2') echo 'selected="selected"'; ?>> Movie 1 </option>
-		<option value="movie3" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie3') echo 'selected="selected"'; ?>> Movie 2 </option>
-		<option value="movie4" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie4') echo 'selected="selected"'; ?>> Movie 3 </option>
+		<option value="movie1" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie1') echo 'selected="selected"'; ?>> Movie 1 </option>
+		<option value="movie2" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie2') echo 'selected="selected"'; ?>> Movie 2 </option>
+		<option value="movie3" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie3') echo 'selected="selected"'; ?>> Movie 3 </option>
 	</select>
+	<label for="movies" class="form-label"> <?= !empty($errors['movies']) ? $errors['movies'] : ''?></label>
 	<div id="moviesError"></div>
+	</div>
 
-	
-	<input type="radio" id="male" name="gender" value="male" <?php if (!empty($_POST['gender']) && $_POST['male'] == 'male') echo 'checked="checked"'; ?>>
-			<label for="male">Male<?= !empty($errors['gender']) ? $errors['gender'] : '' ?></label>
 
-			<input type="radio" id="female" name="gender" value="female" <?php if (!empty($_POST['gender']) && $_POST['female'] == 'female') echo 'checked="checked"'; ?>>
-			<label for="female">Female<?= !empty($errors['female']) ? $errors['female'] : '' ?></label>
-	
-			<div id="genderError"></div>
+	<div class="input-field">
+	<i class="material-icons prefix">wc</i>
+	<div class="radio-float"><input type="radio" id="male" name="gender" value="male" class="with-gap" <?php if (!empty($_POST['gender']) && $_POST['gender'] == 'male') echo 'checked="checked"'; ?>>
+	<label for="male">Male <?= !empty($errors['gender']) ? $errors['gender'] : '' ?> </label>
+	<input type="radio" id="female" name="gender" value="female" class="with-gap" <?php if (!empty($_POST['gender']) && $_POST['gender'] == 'female') echo 'checked="checked"'; ?>>
+	<label for="female"> Female <?= !empty($errors['gender']) ? $errors['gender'] : '' ?></label>
+	</div>
+	<div id="genderError"></div>
+	</div>
 	
 
 	<button type="submit" id="submitButton" class="btn btn-primary"> Submit </button>
 	<button type="reset" value="reset" id="clearFields" class="btn"> Clear </button>
+	</div>
+	</div>
+
 </form>
 
 </div>
