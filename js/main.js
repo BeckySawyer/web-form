@@ -116,15 +116,6 @@ function getAge(dateOfBirth) {
     return age;
 }
 
-// function validateAge() {
-//     var dob = document.getElementById('dateofbirth');
-//     var age = getAge(dateofbirth.value);
-//     if (age != document.getElementById('age').value) {
-//         alert("lol wrong")
-//     }
-// }
-
-
 // calculates the age from the date chosen in the calendar
 function calculateAge() {
     var dob = document.getElementById('dateofbirth');
