@@ -12,17 +12,29 @@ function validateName($name) {
 	if (empty($name)) {
     return "Name is required";
   }
+  if (strlen($name) < 40 && !preg_match("/\s/", $name)) {
+    return "Please enter a first and last name";
+  }
+  else {
+    return false;
+  }
 }
 
 function validateAddress($address) {
 	if (empty($address)) {
     return "Address is required";
   }
+  if (strlen($address) > 200) {
+    return "Please enter a full address, no longer than 200 characters";
+  }
+  else {
+    return false;
+  }
 }
 
 function validateEmail($email) {
 	if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-    return "Email is required";
+    return "Email is required, must include @ and .";
   }
 }
 
@@ -30,7 +42,24 @@ function validateAge($age) {
 	if (empty($age)) {
     return "Age is required";
   }
+  else if((int)$age > 151) {
+    return "Age can not be larger than 150";
+  }
+  return false;
 }
+
+// function ageCalculator($dateofbirth){
+//     if(!empty($dob)){
+//         $birthdate = new DateTime($dob);
+//         $today   = new DateTime('today');
+//         $age = $birthdate->diff($today)->y;
+//         return $age;
+//     } else {
+//         return 0;
+//     }
+// }
+// $dob = "13/08/1992";
+// echo ageCalculator($dob);
 
 function validateBirthday($dateofbirth) {
 	if (empty($dateofbirth)) {
@@ -40,28 +69,16 @@ function validateBirthday($dateofbirth) {
 
 function validateMovies($movies) {
 	if ($movies == 'movie1') {
-    return "Movie is required";
+    return "Movie selection is required";
   }
 }
 
 function validateGender($gender) {
 	if (empty($gender)) {
-    return "Gender is required";
+    return "Gender selection is required";
   }
-}
-
-function calculateAge($age, $dateofbirth){
-
-        $dateofbirth = date("Y-m-d",strtotime($dateofbirth));
-
-        $dobObject = new DateTime($dateofbirth);
-        $nowObject = new DateTime();
-
-        $diff = $dobObject->diff($nowObject);
-
-        return $diff->y;
-
 }
 
 // make a function to have the date valid
 // make a function to minus input date by current date to make sure age is valid
+
