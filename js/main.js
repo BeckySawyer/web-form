@@ -105,8 +105,8 @@ function validateDOB() {
 
 
 // gets the age based on the date that is chosen in the calendar
+var today = new Date();
 function getAge(dateOfBirth) {
-    var today = new Date();
     var birthDate = new Date(dateOfBirth);
     var age = today.getFullYear() - birthDate.getFullYear();
     var m = today.getMonth() - birthDate.getMonth();
@@ -125,11 +125,14 @@ function calculateAge() {
 
 
 // materialize js
- $(document).ready(function() {
+$(document).ready(function() {
     $('select').material_select();
-  });
+});
 
-   $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 20 // Creates a dropdown of 15 years to control year
+today.setFullYear( today.getFullYear() - 100 );
+$('.datepicker').pickadate({
+    selectMonths: true,
+    selectYears: 150,
+    min: today,
+    max: new Date()
 });
