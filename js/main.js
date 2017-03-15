@@ -1,4 +1,5 @@
-   function validate() {
+// validates the whole form, won't send until each of the fields is completed correctly
+function validate() {
     var nameError = validateName();
     var addressError = validateAddress();
     var emailError = validateEmail();
@@ -11,6 +12,8 @@
     return false;
 }
 
+
+// validates the name so that it is longer than 3 characters and less than 40
 function validateName() {
 	name = document.getElementById('name').value;
     pos1 = name.indexOf(" ");
@@ -24,6 +27,8 @@ function validateName() {
     }
 }
 
+
+// validates the address so it isn't longer than 200 characters
 function validateAddress() {
 	address = document.getElementById('address').value;
     pos1 = address.indexOf(" ");
@@ -37,6 +42,8 @@ function validateAddress() {
     }
 }
 
+
+// validates the email so it includes a @, a . and isn't longer than 100 characters
 function validateEmail() {
 	emailAddress = document.getElementById('email').value;
     pos1 = emailAddress.indexOf("@");
@@ -51,6 +58,8 @@ function validateEmail() {
     }
 }
 
+
+// validates the movies so one is chosen
 function validateMovies() {
 	selectedMovie = document.getElementById('movies').selectedIndex;
 	if (selectedMovie > 0) {
@@ -63,6 +72,8 @@ function validateMovies() {
 	}
 }
 
+
+// validates the gender so one is selected
 function validateGender() {
     var selectedGender = document.getElementsByName('gender');
     var selectGender = document.getElementById('genderError').innerHTML = "";
@@ -75,6 +86,8 @@ function validateGender() {
     return selectGender;
 }
 
+
+// validates the date of birth so there is an age inputted, not smaller than 0 and not larger than 150
 function validateDOB() {
     var dateofbirth = document.getElementById('dateofbirth');
     var calculateAge = getAge(dateofbirth.value);
@@ -90,6 +103,8 @@ function validateDOB() {
     }
 }
 
+
+// gets the age based on the date that is chosen in the calendar
 function getAge(dateOfBirth) {
     var today = new Date();
     var birthDate = new Date(dateOfBirth);
@@ -109,12 +124,16 @@ function getAge(dateOfBirth) {
 //     }
 // }
 
+
+// calculates the age from the date chosen in the calendar
 function calculateAge() {
     var dob = document.getElementById('dateofbirth');
     var age = getAge(dateofbirth.value);
     document.getElementById('age').value = age;
 }
 
+
+// materialize js
  $(document).ready(function() {
     $('select').material_select();
   });

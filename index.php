@@ -26,6 +26,8 @@
 
 		// dd($_POST);
 		
+
+		// emails
 		$formcontent=" From: $name \n Email: $email \n Address: $address \n Age: $age \n DOB: $dateofbirth \n Movie Selection: $movies \n Gender: $gender";
   		$recipient = "sawyerbecky13@gmail.com";
   		$subject = "Form Submission";
