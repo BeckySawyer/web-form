@@ -26,9 +26,11 @@
 
 		// dd($_POST);
 		
-		$formcontent=" From: $name \n Email: $email \n Message: $address";
+
+		// emails
+		$formcontent=" From: $name \n Email: $email \n Address: $address \n Age: $age \n DOB: $dateofbirth \n Movie Selection: $movies \n Gender: $gender";
   		$recipient = "sawyerbecky13@gmail.com";
-  		$subject = "Website Form Submission";
+  		$subject = "Form Submission";
   		$mailheader = "From: $email \r\n";
   		mail ($recipient, $subject, $formcontent, $mailheader) or die ("error");
   		require 'thanks.php';
