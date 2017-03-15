@@ -1,10 +1,14 @@
 <?php 
 require 'partials/header.php';
 $name = $_POST['name']; 
+$email = $_POST['email']; 
 ?>
 
-<div class="empty">
-<h2 class="empty-title">Thanks for the feedback <?= $name ?></h2>
+<div class="container">
+	<div class="card-panel grey lighten-5">
+		<h2>Thanks for the info, <?= $name ?>.</h2>
+		<h3> We'll contact you on <?= $email ?> if we have any further queries. </h3>
+	</div>
 </div>
 
 <?php require 'partials/footer.php'; ?>

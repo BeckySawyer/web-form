@@ -2,7 +2,7 @@
 
 <form method="POST" action="index.php" onsubmit="return validate()" class="form-horizontal">
 
-<div class="card grey lighten-4">
+<div class="card grey lighten-5">
 <div class="card-content purple-text darken-3">
 <div class="row">
 
@@ -51,10 +51,10 @@
 	<div class="input-field">
 	<i class="material-icons prefix purple-text darken-3">movie</i>
 	<select id="movies" name="movies">
-		<option value="movie1" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie1') echo 'selected="selected"'; ?> select disabled> Select Movie </option>
-		<option value="movie2" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie2') echo 'selected="selected"'; ?>> Movie 1 </option>
-		<option value="movie3" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie3') echo 'selected="selected"'; ?>> Movie 2 </option>
-		<option value="movie4" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie4') echo 'selected="selected"'; ?>> Movie 3 </option>
+		<option value="movie1" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie1') echo 'selected="selected"'; ?> disabled selected> Select Movie </option>
+		<option value="movie2" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie2') echo 'selected="selected"'; ?>> Die Hard </option>
+		<option value="movie3" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie3') echo 'selected="selected"'; ?>> Edward Scissorhands</option>
+		<option value="movie4" <?php if (!empty($_POST['movies']) && $_POST['movies'] == 'movie4') echo 'selected="selected"'; ?>> Finding Nemo </option>
 	</select>
 	<label for="movies" class="form-label"> <?= !empty($errors['movies']) ? $errors['movies'] : ''?></label>
 	<div id="moviesError" class="black-text"></div>
