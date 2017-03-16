@@ -5,10 +5,6 @@
 	$errors = [];
 
 	if($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-
-		// The request is using the POST method
-		// This is where you will call the validation code
 		$name = $_POST['name'];
 		$address = $_POST['address'];
 		$email = $_POST['email'];
