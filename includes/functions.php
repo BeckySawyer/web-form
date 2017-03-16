@@ -1,13 +1,5 @@
 <?php
 
-function dd($data) {
- die(var_dump($data));
-}
-
-function e($value) {
-	return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
-}
-
 function validateName($name) {
 	if (empty($name)) {
     return "Name is required";
@@ -61,14 +53,90 @@ function validateAge($age) {
 // $dob = "13/08/1992";
 // echo ageCalculator($dob);
 
-function validateBirthday($dateofbirth) {
-	if (empty($dateofbirth)) {
-    return "Date of birth is required";
-  }
+// function validateBirthday($dateofbirth) {
+// 	if (empty($dateofbirth)) {
+//     return "Date of birth is required";
+//   }
+// }
+
+function validateDate($date) {
+    if (empty($date)) {
+        return 'Date of Birth is required.';
+    }
+ 
+    if (!checkDateManually($date)) {
+        return 'Please enter a correct Date of Birth.';
+    }
+ 
+    if (DateTime::createFromFormat('Y-m-d', $date)) {
+        $date = DateTime::createFromFormat('Y-m-d', $date);
+    }
+    else if (DateTime::createFromFormat('Y/m/d', $date)) {
+        $date = DateTime::createFromFormat('Y/m/d', $date);
+    }
+    else if (DateTime::createFromFormat('d-m-Y', $date)) {
+        $date = DateTime::createFromFormat('d-m-Y', $date);
+    }
+    else if (DateTime::createFromFormat('d/m/Y', $date)) {
+        $date = DateTime::createFromFormat('d/m/Y', $date);
+    }
+    else {
+        return 'Please enter a correct Date of Birth.';
+    }
+ 
+    $time = new DateTime('now');
+    $today = new DateTime('now');
+ 
+    $date150YearsAgo = DateTime::createFromFormat('Y-m-d', $time->modify('-150 Year')->format('Y-m-d'));
+ 
+    $chosenDate = $date->format('Y-m-d');
+    $chosenDay = $date->format('d');
+    $chosenMonth = $date->format('m');
+    $chosenYear = $date->format('Y');
+    $todaysDate = $today->format('Y-m-d');
+    $minDate = $date150YearsAgo->format('Y-m-d');
+ 
+    if ($chosenDate <= $minDate){
+        return 'We really don\'t think you were born more than 150 years ago.';
+    }
+    else if ($chosenDate >= $todaysDate){
+        return 'You cannot be born after today.';
+    }
+    else if (!checkdate($chosenMonth, $chosenDay, $chosenYear)) {
+        return 'Please enter a correct Date of Birth.';
+    }
+ 
+    return false;
+}
+ 
+function checkDateManually($date) {
+    $dateArray = [];
+ 
+    if(strpos($date, '/') !== false) {
+        $dateArray = explode("/", $date);
+    }
+    else if(strpos($date, '-') !== false){
+        $dateArray = explode("-", $date);
+    }
+ 
+    if (empty($dateArray)) {
+        return false;
+    }
+ 
+    if($dateArray && count($dateArray) === 3 && (int)$dateArray[0] > 0 && (int)$dateArray[1] > 0 && (int)$dateArray[2] > 0) {
+        if (checkdate($dateArray[1], $dateArray[2], $dateArray[0])) {
+            return true;
+        } else if (checkdate($dateArray[1], $dateArray[0], $dateArray[2])) {
+            return true;
+        }
+        return false;
+    }
+ 
+    return false;
 }
 
 function validateMovies($movies) {
-	if ($movies == 'movie1') {
+	if ($movies == '') {
     return "Movie selection is required";
   }
 }
@@ -79,6 +147,10 @@ function validateGender($gender) {
   }
 }
 
-// make a function to have the date valid
-// make a function to minus input date by current date to make sure age is valid
+function dd($data) {
+ die(var_dump($data));
+}
 
+function e($value) {
+  return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+}

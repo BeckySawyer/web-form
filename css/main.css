@@ -1,5 +1,23 @@
+body {
+	margin: 30px auto;
+	background-image: url(../img/background.jpg);
+	background-position: center;
+}
+
 .radio-float {
 	display: inline-block;
-	margin-left: 8%;
+	margin-left: 6%;
 	margin-bottom: 5%;
+}
+
+.card-title {
+	text-align: center;
+}
+
+.card-title h3 {
+	margin-bottom: 120px;
+}
+
+.card-title h2 {
+	margin-bottom: 120px;
 }

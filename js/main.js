@@ -13,7 +13,7 @@ function validate() {
 }
 
 
-// validates the name so that it is longer than 3 characters and less than 40
+// validates the name so that it is longer than 3 characters, which includes a space and less than 40
 function validateName() {
 	name = document.getElementById('name').value;
     pos1 = name.indexOf(" ");
@@ -93,7 +93,7 @@ function validateDOB() {
     var calculateAge = getAge(dateofbirth.value);
     var dob = document.getElementById('age').value;
     // document.getElementById('age').value = (getAge(document.getElementById('dateofbirth').value));
-    if (calculateAge != dob || parseInt(dob) >= 150 || parseInt(dob) < 0) {
+    if (calculateAge != dob || parseInt(dob) >= 150 || parseInt(dob) <= 0) {
         document.getElementById('ageError').innerHTML = "Please enter a valid age, no more than 150";
         return false;
     }
@@ -104,10 +104,10 @@ function validateDOB() {
 }
 
 
-// gets the age based on the date that is chosen in the calendar
-var today = new Date();
-function getAge(dateOfBirth) {
-    var birthDate = new Date(dateOfBirth);
+// compares age inputted manually to the date/age chosen in calendar
+function getAge(dateofbirth) {
+    var today = new Date();
+    var birthDate = new Date(dateofbirth);
     var age = today.getFullYear() - birthDate.getFullYear();
     var m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
@@ -122,17 +122,3 @@ function calculateAge() {
     var age = getAge(dateofbirth.value);
     document.getElementById('age').value = age;
 }
-
-
-// materialize js
-$(document).ready(function() {
-    $('select').material_select();
-});
-
-today.setFullYear( today.getFullYear() - 100 );
-$('.datepicker').pickadate({
-    selectMonths: true,
-    selectYears: 150,
-    min: today,
-    max: new Date()
-});
