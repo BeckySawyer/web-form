@@ -1,5 +1,16 @@
 <div class="container" class="valign-wrapper">
 
+<div class="card hoverable">
+<div class="card-content">
+
+	<h1> WELCOME, </h1>
+	<h2> Are you ready for the most uninteresting form of your life? </h2>
+
+</div>
+</div>
+
+
+
 <form method="POST" action="index.php" onsubmit="return validate()" class="form-horizontal">
 
 <div class="card hoverable">
@@ -67,6 +78,8 @@
 	<label for="male"> Male </label>
 	<input type="radio" id="female" name="gender" value="Female" class="with-gap" <?php if (!empty($_POST['gender']) && $_POST['gender'] == 'Female') echo 'checked="checked"'; ?>>
 	<label for="female"> Female </label>
+	<input type="radio" id="other" name="gender" value="Other" class="with-gap" <?php if (!empty($_POST['gender']) && $_POST['gender'] == 'Female') echo 'checked="checked"'; ?>>
+	<label for="other"> Other </label>
 	</div>
 	<div id="genderError"> <?= !empty($errors['gender']) ? $errors['gender'] : '' ?> </div>
 	</div>

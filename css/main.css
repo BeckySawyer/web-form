@@ -7,7 +7,7 @@ body {
 	margin-left: 4%;
 	margin-bottom: 4%;
 }
-button {
+#submitButton, #clearFields {
 	display: inline-block;
 	float: left;
 	margin-left: 12px;
