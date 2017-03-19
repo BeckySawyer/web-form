@@ -16,7 +16,7 @@ body {
 .material-icons.prefix.active {
 	color: #666;
 }
-input[type=text], input[type=text]:focus:not([readonly]) {
+input[type=text], input[type=text]:focus:not([readonly]), input[type=date], input[type=date]:focus:not([readonly]), input[type=number], input[type=number]:focus:not([readonly]), input[type=email], input[type=email]:focus:not([readonly]), textarea.materialize-textarea, textarea.materialize-textarea:focus:not([readonly]) {
 	box-shadow: 0 1px 0 0 #888;
 	border-bottom: 1px solid #888;
 }

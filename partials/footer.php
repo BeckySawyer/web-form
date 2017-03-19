@@ -16,8 +16,12 @@ $('.datepicker').pickadate({
     selectYears: 150,
     min: present,
     max: new Date(),
-    format: 'dd-mm-yyyy'
+    format: 'yyyy-mm-dd'
 });
+
+ $(document).ready(function() {
+    $('input#input_text, textarea#textarea1').characterCounter();
+  });
 
 </script>
 </body>

@@ -1,27 +1,19 @@
 <div class="container" class="valign-wrapper">
 
 <div class="card hoverable">
-<div class="card-content">
+<div class="card-content"><!-- 
 
 	<h1> WELCOME, </h1>
-	<h2> Are you ready for the most uninteresting form of your life? </h2>
-
-</div>
-</div>
-
-
+	<h2> Are you ready for the most uninteresting form of your life? </h2> -->
 
 <form method="POST" action="index.php" onsubmit="return validate()" class="form-horizontal">
-
-<div class="card hoverable">
-<div class="card-content">
 <div class="row">
 
 <!-- name -->
 	<div class="input-field col s12">
 	<i class="material-icons prefix">account_circle</i>
 	<label for="name" class="icon-prefix"> Your name </label>
-	<input id="name" name="name" type="text" value="<?= !empty($name) ? $name : '' ?>" class="icon-prefix <?= !empty($errors['name']) ? 'invalid' : ''?>" placeholder="First & Last Name">
+	<input id="name" name="name" type="text" value="<?= !empty($name) ? $name : '' ?>" class="icon-prefix" placeholder="First & Last Name" data-length="40">
 	<div id="nameError"><?= !empty($errors['name']) ? $errors['name'] : ''?></div>
 	</div>
 
@@ -29,7 +21,7 @@
 	<div class="input-field col s12">
 	<i class="material-icons prefix">location_city</i>
 	<label for="address"> Your address </label>
-	<textarea id="address" class="materialize-textarea" placeholder="Street, Suburb, City, Country" name="address"><?= !empty($address) ? $address : '' ?></textarea>
+	<textarea id="address" class="materialize-textarea" placeholder="Street, Suburb, City, Country" name="address" data-length="200"><?= !empty($address) ? $address : '' ?></textarea>
 	<div id="addressError"><?= !empty($errors['address']) ? $errors['address'] : ''?></div>
 	</div>
 	
@@ -37,7 +29,7 @@
 	<div class="input-field col s12">
 	<i class="material-icons prefix">email</i>
 	<label for="email"> Your email </label>
-	<input id="email" name="email" placeholder="something@something.com" type="email" value="<?= !empty($email) ? $email : '' ?>">
+	<input id="email" name="email" placeholder="something@something.com" type="email" value="<?= !empty($email) ? $email : '' ?>" data-length="100">
 	<div id="emailError"><?= !empty($errors['email']) ? $errors['email'] : ''?></div>
 	</div>
 
@@ -53,7 +45,7 @@
 	<div class="input-field col s6">
 	<i class="material-icons prefix">today</i>
 	<label for="dateofbirth"> Your date of birth </label>
-	<input id="dateofbirth" name="dateofbirth" type="date" value="<?= !empty($dateofbirth) ? $dateofbirth : '' ?>"  class="datepicker" placeholder="##/##/####" onchange="calculateAge()">
+	<input id="dateofbirth" name="dateofbirth" type="date" value="<?= !empty($date) ? $date : '' ?>"  class="datepicker" placeholder="##/##/####" onchange="calculateAge()">
 	<div id="dobError"><?= !empty($errors['dateofbirth']) ? $errors['dateofbirth'] : ''?></div>
 	</div>
 
@@ -92,8 +84,6 @@
 	<button type="reset" value="reset" id="clearFields" class="waves-effect waves-light btn"> <i class="material-icons left">clear</i>Clear </button>
 	</div>
 
-</div>
-</div>
 </div>
 
 </form>

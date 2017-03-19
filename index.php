@@ -1,7 +1,7 @@
 <?php
 	require 'includes/functions.php';
 
-	$name = $address = $email = $age = $dateofbirth = $movies = $gender = '';
+	$name = $address = $email = $age = $date = $movies = $gender = '';
 	$errors = [];
 
 	if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -27,7 +27,7 @@
 
 		// emails
 		if (!$errors['name'] && !$errors['address'] && !$errors['email'] && !$errors['age'] && !$errors['dateofbirth'] && !$errors['movies'] && !$errors['gender']) {
-			$formcontent=" From: $name \n Email: $email \n Address: $address \n Age: $age \n DOB: $dateofbirth \n Movie Selection: $movies \n Gender: $gender";
+			$formcontent=" From: $name \n Email: $email \n Address: $address \n Age: $age \n DOB: $date \n Movie Selection: $movies \n Gender: $gender";
 	  		$recipient = "sawyerbecky13@gmail.com";
 	  		$subject = "Form Submission";
 	  		$mailheader = "From: $email \r\n";

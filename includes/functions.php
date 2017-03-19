@@ -4,7 +4,7 @@ function validateName($name) {
 	if (empty($name)) {
     return "Name is required";
   }
-  if (strlen($name) < 40 && !preg_match("/\s/", $name)) {
+ if (strlen($name) < 40 && !preg_match("/\s/", $name)) {
     return "Please enter a first and last name";
   }
   else {
@@ -16,7 +16,7 @@ function validateAddress($address) {
 	if (empty($address)) {
     return "Address is required";
   }
-  if (strlen($address) > 200) {
+ if (strlen($address) > 200) {
     return "Please enter a full address, no longer than 200 characters";
   }
   else {
@@ -34,30 +34,16 @@ function validateAge($age) {
 	if (empty($age)) {
     return "Age is required";
   }
-  else if((int)$age > 151) {
+  if((int)$age > 150) {
     return "Age can not be larger than 150";
   }
+  else if((int)$age < 0) {
+    return "You can't be not born!";
+  }
+  else {
   return false;
+  }
 }
-
-// function ageCalculator($dateofbirth){
-//     if(!empty($dob)){
-//         $birthdate = new DateTime($dob);
-//         $today   = new DateTime('today');
-//         $age = $birthdate->diff($today)->y;
-//         return $age;
-//     } else {
-//         return 0;
-//     }
-// }
-// $dob = "13/08/1992";
-// echo ageCalculator($dob);
-
-// function validateBirthday($dateofbirth) {
-// 	if (empty($dateofbirth)) {
-//     return "Date of birth is required";
-//   }
-// }
 
 function validateDate($date) {
     if (empty($date)) {
