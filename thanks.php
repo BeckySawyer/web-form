@@ -5,10 +5,10 @@ $email = $_POST['email'];
 ?>
 
 <div class="container">
-	<div class="card-panel grey lighten-5">
-		<h2>Thanks for the info, <?= $name ?>.</h2>
-		<h3> We'll contact you on <?= $email ?> if we have any further queries. </h3>
-		<a href="index.php"> complete again? </a>
+	<div class="card-panel">
+		<h1>Thanks for the info, <span><?= $name ?></span>.</h1>
+		<h2> We'll contact you on <span><?= $email ?></span> if we have any further queries. </h2>
+		<a href="index.php" class="complete waves-effect waves-light btn"> complete again? </a>
 	</div>
 </div>
 

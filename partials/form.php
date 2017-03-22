@@ -1,10 +1,9 @@
 <div class="container" class="valign-wrapper">
 
 <div class="card hoverable">
-<div class="card-content"><!-- 
+<div class="card-content">
 
-	<h1> WELCOME, </h1>
-	<h2> Are you ready for the most uninteresting form of your life? </h2> -->
+<h1> Please fill out the following: </h1>
 
 <form method="POST" action="index.php" onsubmit="return validate()" class="form-horizontal">
 <div class="row">
@@ -81,7 +80,7 @@
 	<button type="submit" id="submitButton" class="waves-effect waves-light btn"> <i class="material-icons left">send</i> Submit </button>
 	</div>
 	<div class="col-s5 center-align">
-	<button type="reset" value="reset" id="clearFields" class="waves-effect waves-light btn"> <i class="material-icons left">clear</i>Clear </button>
+	<button type="reset" value="reset" onClick="window.location.reload();" id="clearFields" class="waves-effect waves-light btn"> <i class="material-icons left">clear</i>Clear </button>
 	</div>
 
 </div>

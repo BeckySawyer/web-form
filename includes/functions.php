@@ -1,5 +1,6 @@
 <?php
 
+// validates name so it isn't longer than 40 characters and has a space
 function validateName($name) {
 	if (empty($name)) {
     return "Name is required";
@@ -12,6 +13,7 @@ function validateName($name) {
   }
 }
 
+// validates the address so that it isn't longer than 200 characters
 function validateAddress($address) {
 	if (empty($address)) {
     return "Address is required";
@@ -24,12 +26,16 @@ function validateAddress($address) {
   }
 }
 
+
+// validates the email so it includes an @ and a .
 function validateEmail($email) {
 	if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
     return "Email is required, must include @ and .";
   }
 }
 
+
+// validates the age so that there is a number inputted and it is not larger than 150 and is not smaller than 0
 function validateAge($age) {
 	if (empty($age)) {
     return "Age is required";
@@ -45,13 +51,14 @@ function validateAge($age) {
   }
 }
 
+// validates the date so it is a valid date
 function validateDate($date) {
     if (empty($date)) {
-        return 'Date of Birth is required.';
+        return "Date of Birth is required.";
     }
  
     if (!checkDateManually($date)) {
-        return 'Please enter a correct Date of Birth.';
+        return "Please enter a correct Date of Birth.";
     }
  
     if (DateTime::createFromFormat('Y-m-d', $date)) {
@@ -67,7 +74,7 @@ function validateDate($date) {
         $date = DateTime::createFromFormat('d/m/Y', $date);
     }
     else {
-        return 'Please enter a correct Date of Birth.';
+        return "Please enter a correct Date of Birth.";
     }
  
     $time = new DateTime('now');
@@ -83,18 +90,19 @@ function validateDate($date) {
     $minDate = $date150YearsAgo->format('Y-m-d');
  
     if ($chosenDate <= $minDate){
-        return 'We really don\'t think you were born more than 150 years ago.';
+        return "The date can not be more than 150 years ago.";
     }
     else if ($chosenDate >= $todaysDate){
-        return 'You cannot be born after today.';
+        return "The date can't be after today.";
     }
     else if (!checkdate($chosenMonth, $chosenDay, $chosenYear)) {
-        return 'Please enter a correct Date of Birth.';
+        return "Please enter a correct Date of Birth.";
     }
  
     return false;
 }
  
+// validates the date so it is a valid date
 function checkDateManually($date) {
     $dateArray = [];
  
@@ -121,12 +129,15 @@ function checkDateManually($date) {
     return false;
 }
 
+// validates the movie so there is one selected
 function validateMovies($movies) {
 	if ($movies == '') {
     return "Movie selection is required";
   }
 }
 
+
+// validates the gender so there is a gender selected
 function validateGender($gender) {
 	if (empty($gender)) {
     return "Gender selection is required";
@@ -137,6 +148,7 @@ function dd($data) {
  die(var_dump($data));
 }
 
+// converts ' and " into the characters
 function e($value) {
   return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
